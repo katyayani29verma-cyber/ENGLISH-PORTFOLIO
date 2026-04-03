@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>English Portfolio – Katyayani Verma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg-page:      #f0ebe2;
+      --bg-card:      #faf7f2;
+      --bg-dark:      #2a2420;
+      --bg-dark-2:    #342e28;
+      --bg-dark-3:    #3e3630;
+      --text-dark:    #1a1612;
+      --text-body:    #2e2822;
+      --text-mid:     #4a3f36;
+      --text-muted:   #6a5e54;
+      --text-light:   #f5f0e8;
+      --text-light-2: #c8bfb5;
+      --text-light-3: #a09890;
+      --accent:       #b87058;
+      --accent-2:     #d4956e;
+      --sage:         #7a9478;
+      --blush:        #d9bfb0;
+      --border-light: #ddd4c8;
+      --border-dark:  #4a3f35;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-body);
+      font-family: 'Lato', sans-serif;
+      font-weight: 400;
+      line-height: 1.88;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER dark ───────────────────────────────── */
+    header {
+      background-color: var(--bg-dark);
+      text-align: center;
+      padding: 84px 24px 68px;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 10%, rgba(184,112,88,.20) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 90%, rgba(122,148,120,.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .header-eyebrow {
+      font-size: 10px; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--accent-2);
+      margin-bottom: 18px;
+      opacity: 0; animation: fadeUp .8s ease forwards .2s;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 700;
+      color: var(--text-light); letter-spacing: -.5px; line-height: 1.12;
+      opacity: 0; animation: fadeUp .8s ease forwards .4s;
+    }
+    .header-rule {
+      width: 52px; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--sage));
+      margin: 22px auto; border-radius: 2px;
+      opacity: 0; animation: fadeUp .8s ease forwards .6s;
+    }
+    .header-sub {
+      font-size: .88rem; color: var(--text-light-2); letter-spacing: 1px;
+      opacity: 0; animation: fadeUp .8s ease forwards .75s;
+    }
+
+    /* ─── INTRO light ───────────────────────────────── */
+    .intro-section {
+      max-width: 740px; margin: 0 auto; padding: 72px 32px 60px;
+      opacity: 0; animation: fadeUp .9s ease forwards 1s;
+    }
+    .intro-section p { font-size: 1.0rem; color: var(--text-body); margin-bottom: 1.3em; }
+    .intro-section p:last-child { margin-bottom: 0; }
+
+    /* ─── NAV dark ──────────────────────────────────── */
+    .nav-section { background-color: var(--bg-dark); padding: 60px 24px; }
+    .nav-label {
+      text-align: center; font-size: 9px; letter-spacing: 3.5px;
+      text-transform: uppercase; color: var(--text-light-2); margin-bottom: 32px;
+    }
+    .nav-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px; max-width: 880px; margin: 0 auto;
+    }
+    .nav-card {
+      background: var(--bg-dark-2); border: 1px solid var(--border-dark);
+      border-radius: 14px; padding: 28px 20px;
+      text-align: center; text-decoration: none; cursor: pointer;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+    }
+    .nav-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      background: var(--bg-dark-3);
+    }
+    .nav-card .icon { font-size: 1.6rem; }
+    .nav-card .card-title {
+      font-family: 'Playfair Display', serif; font-size: 1rem;
+      font-weight: 600; color: var(--text-light);
+    }
+    .nav-card .card-tag {
+      font-size: 9px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--accent-2);
+    }
+
+    /* ─── SHARED entry layout ───────────────────────── */
+    .entry-section { padding: 88px 24px; }
+    .entry-inner   { max-width: 760px; margin: 0 auto; }
+
+    .entry-number {
+      font-size: 9px; font-weight: 700; letter-spacing: 3.5px;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+    }
+    .entry-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 4vw, 2.5rem); font-weight: 700;
+      color: var(--text-dark); margin-bottom: 36px; line-height: 1.2;
+    }
+    .entry-body { font-size: 1.0rem; color: var(--text-body); margin-bottom: 1.4em; }
+    .entry-body:last-of-type { margin-bottom: 0; }
+
+    .reflection-box {
+      margin-top: 52px;
+      border-left: 3px solid var(--sage);
+      padding: 22px 26px;
+      background: rgba(122,148,120,.09);
+      border-radius: 0 12px 12px 0;
+    }
+    .ref-label {
+      font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--sage); margin-bottom: 12px;
+    }
+    .reflection-box p { font-size: .94rem; color: var(--text-mid); line-height: 1.8; }
+
+    /* ─── ENTRY 1 light bg ──────────────────────────── */
+    #entry1 { background-color: var(--bg-page); border-top: 1px solid var(--border-light); }
+
+    /* ─── ENTRY 2 dark bg ───────────────────────────── */
+    #entry2 { background-color: var(--bg-dark); border-top: none; }
+    #entry2 .entry-number              { color: var(--accent-2); }
+    #entry2 .entry-title               { color: var(--text-light); }
+    #entry2 .entry-body                { color: #c0b8b0; }
+    #entry2 .reflection-box            { background: rgba(255,255,255,.05); border-left-color: var(--sage); }
+    #entry2 .reflection-box p          { color: var(--text-light-3); }
+    #entry2 .reflection-box .ref-label { color: var(--sage); }
+
+    /* ─── ENTRY 3 podcast warm-light ────────────────── */
+    #entry3 { background-color: #f5ede4; border-top: 1px solid var(--border-light); }
+
+    .podcast-badge {
+      display: inline-block; background: var(--accent); color: #fff;
+      font-size: 9px; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; padding: 5px 16px;
+      border-radius: 20px; margin-bottom: 18px;
+    }
+    .podcast-desc { font-size: 1.0rem; color: var(--text-body); margin-bottom: 40px; max-width: 620px; }
+
+    .audio-wrap {
+      background: var(--bg-dark); border-radius: 18px;
+      padding: 30px 30px 26px; margin-bottom: 36px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.22);
+    }
+    .player-label {
+      display: block; font-size: 9px; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--text-light-2); margin-bottom: 16px;
+    }
+    audio { width: 100%; accent-color: var(--accent); }
+
+    .quote-box {
+      border: 1px solid var(--accent); border-radius: 16px;
+      padding: 32px 36px; background: rgba(184,112,88,.07); text-align: center;
+    }
+    .quote-box blockquote {
+      font-family: 'Playfair Display', serif; font-style: italic;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--accent); line-height: 1.6;
+    }
+    .quote-box blockquote::before { content: '\201C'; }
+    .quote-box blockquote::after  { content: '\201D'; }
+
+    /* ─── AI USAGE dark ─────────────────────────────── */
+    #ai-usage { background-color: var(--bg-dark); padding: 88px 24px; }
+    #ai-usage .entry-number { color: var(--accent-2); }
+    #ai-usage .entry-title  { color: var(--text-light); margin-bottom: 28px; }
+    .ai-card {
+      background: var(--bg-dark-2); border: 1px solid var(--border-dark);
+      border-radius: 16px; padding: 36px 38px;
+    }
+    .ai-card p { font-size: .97rem; color: var(--text-light-3); margin-bottom: 1em; line-height: 1.88; }
+    .ai-card p:last-child { margin-bottom: 0; }
+
+    /* ─── FOOTER dark ───────────────────────────────── */
+    footer {
+      text-align: center; padding: 44px 24px;
+      background-color: #1e1a17; border-top: 1px solid var(--border-dark);
+    }
+    footer p { font-size: .8rem; color: #6a6058; letter-spacing: .5px; }
+    footer strong { color: var(--text-light-2); font-weight: 700; }
+
+    /* ─── scroll fade ───────────────────────────────── */
+    .fade-in {
+      opacity: 0; transform: translateY(26px);
+      transition: opacity .72s ease, transform .72s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .nav-grid    { grid-template-columns: 1fr 1fr; }
+      .ai-card     { padding: 24px 20px; }
+      .audio-wrap  { padding: 20px; }
+      .quote-box   { padding: 24px 20px; }
+      .intro-section { padding: 48px 20px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER — dark -->
+<header>
+  <p class="header-eyebrow">Communication &nbsp;·&nbsp; English Portfolio</p>
+  <h1>English Portfolio</h1>
+  <div class="header-rule"></div>
+  <p class="header-sub">Katyayani Verma &nbsp;·&nbsp; 25BCE0612</p>
+</header>
+
+<!-- INTRO — light -->
+<section class="intro-section">
+  <p>This portfolio explores communication not as something obvious or direct, but as something that exists in the small, often unnoticed moments of everyday life. Through a story, an essay, and a podcast, I have tried to capture how meaning is created not only through words, but also through silence, tone, and interpretation.</p>
+  <p>I am Katyayani Verma, a student who is deeply interested in understanding how people think, feel, and express themselves in subtle ways. This portfolio reflects not only my work, but also my perspective on the complexities of everyday interactions.</p>
+  <p>The story reflects how simple changes in behavior can quietly affect relationships, while the essay looks at the subtle spaces between what is said and what is understood. The podcast, centered around a deleted message, begins with a familiar and almost humorous situation, but gradually unfolds into a deeper reflection on hesitation, overthinking, and the things people choose not to express.</p>
+  <p>Together, these entries represent my perspective on communication as something layered and complex — where even the smallest moments can carry meaning, and sometimes, what is left unsaid matters the most.</p>
+</section>
+
+<!-- NAV — dark -->
+<section class="nav-section fade-in">
+  <p class="nav-label">Explore the entries</p>
+  <div class="nav-grid">
+    <a class="nav-card" href="#entry1">
+      <span class="icon">✍️</span>
+      <span class="card-title">The Seat Next to Me</span>
+      <span class="card-tag">Entry 1 · Story</span>
+    </a>
+    <a class="nav-card" href="#entry2">
+      <span class="icon">📄</span>
+      <span class="card-title">The Spaces Between Words</span>
+      <span class="card-tag">Entry 2 · Essay</span>
+    </a>
+    <a class="nav-card" href="#entry3">
+      <span class="icon">🎙️</span>
+      <span class="card-title">The Message Deleted</span>
+      <span class="card-tag">Entry 3 · Podcast</span>
+    </a>
+    <a class="nav-card" href="#ai-usage">
+      <span class="icon">🤖</span>
+      <span class="card-title">AI Usage</span>
+      <span class="card-tag">Disclosure</span>
+    </a>
+  </div>
+</section>
+
+<!-- ENTRY 1 — light -->
+<section class="entry-section" id="entry1">
+  <div class="entry-inner fade-in">
+    <p class="entry-number">Entry 01 &nbsp;·&nbsp; Written Mode</p>
+    <h2 class="entry-title">The Seat Next to Me</h2>
+
+    <p class="entry-body">There used to be someone who always sat next to me. It wasn't something we ever planned or talked about; it just happened from the first week and slowly became routine. The same bench, the same side, every day. We weren't very talkative, but there was a quiet understanding between us. We shared notes, made small comments during lectures, and sometimes laughed at things that weren't even that funny. It was simple, but it felt comfortable.</p>
+    <p class="entry-body">One day, they didn't come to class. I didn't think much of it at first, because missing a day is normal. I sat in the same place, leaving the seat next to me empty without really questioning it. But the next day, when they returned, something felt different. They didn't sit next to me. Instead, they chose another bench, with different people.</p>
+    <p class="entry-body">It was such a small change that no one else seemed to notice. Even I tried to ignore it. For a moment, I thought about asking them why, but the question felt unnecessary for something so small. So I said nothing, and they said nothing too.</p>
+    <p class="entry-body">Days passed, and that small change became permanent. We still saw each other, exchanged occasional greetings, but the comfort we once had disappeared. There was no explanation, no clear reason — just distance that quietly settled in.</p>
+    <p class="entry-body">Sometimes I still wonder if I did something wrong, or if it was just a random choice that meant nothing to them but everything to me. But I never asked, and now it feels like it's too late.</p>
+    <p class="entry-body">The seat next to me is still there. Someone else might sit in it now, but it never feels the same. Not because it's empty… but because it's no longer what it used to be.</p>
+
+    <div class="reflection-box">
+      <p class="ref-label">Reflection</p>
+      <p>The purpose of this story is to capture how small, everyday changes in behavior can impact relationships without any clear explanation. It focuses on a subtle shift in a familiar situation and how the absence of conversation can create emotional distance.</p>
+      <br>
+      <p>The target audience for this piece is students who experience similar interactions in classrooms and social environments. Many such situations go unnoticed by others but can feel significant to the individuals involved.</p>
+      <br>
+      <p>This entry connects to the theme of communication indirectly by showing how the lack of simple conversations can lead to unanswered questions and assumptions. The story emphasizes that communication is not always about major discussions, but also about addressing small changes before they grow into distance. It highlights how silence can sometimes replace clarity, affecting relationships in quiet but meaningful ways.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRY 2 — dark -->
+<section class="entry-section" id="entry2">
+  <div class="entry-inner fade-in">
+    <p class="entry-number">Entry 02 &nbsp;·&nbsp; Written Mode</p>
+    <h2 class="entry-title">The Spaces Between Words</h2>
+
+    <p class="entry-body">Not everything that shapes our relationships is spoken out loud. In fact, some of the most important parts of our interactions exist quietly — in pauses, in tone, and in the small shifts we notice but rarely address.</p>
+    <p class="entry-body">There are moments when everything appears normal on the surface. Conversations continue, routines stay the same, and nothing seems clearly wrong. Yet, something feels different. A reply is shorter than usual, a laugh feels slightly forced, or a familiar conversation no longer flows as easily. These changes are subtle, almost unnoticeable to others, but to the person experiencing them, they can feel significant.</p>
+    <p class="entry-body">What makes these moments complicated is their uncertainty. They are not strong enough to question directly, yet they are too present to ignore. This leaves people in a space where they are constantly thinking, trying to understand whether something has actually changed or whether they are simply overanalyzing ordinary situations.</p>
+    <p class="entry-body">In many cases, people choose not to address these feelings. It can feel unnecessary to bring up something that cannot be clearly explained. There is also a fear of being wrong — of creating a problem where none exists. As a result, silence becomes the easier option. Interactions continue, but with an unspoken layer of doubt beneath them.</p>
+    <p class="entry-body">Over time, these small uncertainties can slowly create distance. Not because of any major conflict, but because of a lack of clarity. Without open understanding, assumptions begin to take the place of reality. People start interpreting actions based on feelings rather than facts, and this can quietly change the way they connect with each other.</p>
+    <p class="entry-body">This reflects an important aspect of communication that is often overlooked — it is not limited to words alone. Communication also exists in how people respond, how present they are, and how consistently they engage with others. When these elements change, even slightly, the impact can be felt, even if it is never discussed.</p>
+    <p class="entry-body">In the end, it is often the smallest, most unnoticed moments that shape our understanding of others. The things left unsaid, the questions left unasked, and the feelings left unexpressed can influence relationships more than we realize. Recognizing this does not always mean confronting every doubt, but it does highlight the importance of awareness, clarity, and the willingness to understand beyond what is immediately visible.</p>
+
+    <div class="reflection-box">
+      <p class="ref-label">Reflection</p>
+      <p>The purpose of this essay is to explore how subtle and often unnoticed aspects of interaction influence relationships and understanding. Instead of focusing on direct communication, it highlights how tone, behavior, and unspoken feelings play an important role in shaping connections between people.</p>
+      <br>
+      <p>The target audience for this piece is students and young individuals who frequently experience similar situations in their daily interactions. The essay is written in a reflective and relatable style to encourage readers to think about their own experiences.</p>
+      <br>
+      <p>This entry connects to the theme of communication indirectly by emphasizing that communication is not limited to spoken words. It shows how the absence of clarity and the presence of assumptions can affect understanding. The essay aims to highlight the importance of being aware of these subtle dynamics in everyday communication.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ENTRY 3 — warm light + podcast -->
+<section class="entry-section" id="entry3">
+  <div class="entry-inner fade-in">
+    <span class="podcast-badge">🎙 Featured Entry</span>
+    <p class="entry-number">Entry 03 &nbsp;·&nbsp; Oral / Aural Mode</p>
+    <h2 class="entry-title">The Message Deleted</h2>
+
+    <p class="podcast-desc">This podcast explores a simple yet relatable situation — a deleted message — and how it can lead to curiosity, overthinking, and deeper reflection. What starts as a light and familiar experience gradually shifts into a more thoughtful exploration of hesitation, emotions, and the things people choose not to say.</p>
+
+    <div class="audio-wrap">
+      <span class="player-label">🎧 &nbsp;Listen to the episode</span>
+      <audio controls preload="metadata">
+        <source src="podcast.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+
+    <div class="quote-box">
+      <blockquote>Some messages are deleted… but never really gone.</blockquote>
+    </div>
+
+    <div class="reflection-box" style="margin-top:44px;">
+      <p class="ref-label">Reflection</p>
+      <p>The purpose of this podcast is to explore how small and seemingly insignificant moments in digital interactions can carry deeper emotional meaning. Through a simple and relatable situation of a deleted message, the piece reflects on curiosity, overthinking, and the unspoken thoughts people often choose not to share.</p>
+      <br>
+      <p>The target audience for this podcast is students and young individuals who frequently use messaging platforms and can relate to situations where uncertainty arises from incomplete or unclear communication. The conversational tone and relatable humor are intended to engage listeners while gradually leading them into deeper reflection.</p>
+      <br>
+      <p>This entry connects to the theme of communication indirectly by highlighting how communication is not only about what is expressed, but also about what is withheld. A deleted message represents hesitation, fear, or overthinking, showing that communication also exists in absence and silence. The podcast emphasizes that even messages that are never read can still hold meaning, shaping how individuals think, feel, and interpret situations.</p>
+    </div>
+  </div>
+</section>
+
+<!-- AI USAGE — dark -->
+<section id="ai-usage">
+  <div class="entry-inner fade-in" style="max-width:760px;margin:0 auto;">
+    <p class="entry-number">Disclosure</p>
+    <h2 class="entry-title">AI Usage</h2>
+    <div class="ai-card">
+      <p>I used AI tools to assist with structuring my ideas and organizing the content of this portfolio. AI was also used to help in designing and coding the website layout.</p>
+      <p>However, all the core ideas, themes, and content presented in this portfolio reflect my own understanding and perspective. AI was used only as a support tool for refining, formatting, and improving clarity, and not for generating the main concepts or personal insights included in the entries.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — dark -->
+<footer>
+  <p>Created by <strong>Katyayani Verma</strong> &nbsp;·&nbsp; 25BCE0612</p>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
